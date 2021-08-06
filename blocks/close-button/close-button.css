@@ -1,5 +1,5 @@
 .close-button {
-    position: fixed;
+    position: absolute;
     left: 102%;
     top: -12%;
     background-image: url("../../images/close-button.svg");
