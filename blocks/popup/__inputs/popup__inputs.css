@@ -1,4 +1,4 @@
-.popup__name{
+.popup__inputs{
     margin-left: 36px;
     width: 358px;
     padding: 0 0 13px 0;
@@ -10,12 +10,16 @@
     line-height: 17px;
 }
 
-.popup__name:focus{
+.popup__inputs:focus{
     outline: none;
 }
 
+.popup__inputs:last-child{
+    margin-bottom:0;
+}
+
 @media screen and (max-width:767px){
-    .popup__name{
+    .popup__inputs{
         width: 238px;
         margin-left: 22px;
     }

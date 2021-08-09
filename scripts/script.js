@@ -1,33 +1,34 @@
 let popup = document.querySelector('.popup');
-let editButton = document.querySelector('.edit-button');
-let closeButton = document.querySelector('.close-button');
+let editButton = document.querySelector('.profile__edit-button');
+let closeButton = document.querySelector('.popup__close-button');
+let profileName= document.querySelector('.profile__name');
+let popupName = document.querySelector('.popup__input_name');
+let profileAbout= document.querySelector('.profile__about');
+let popupAbout = document.querySelector('.popup__input_about');
+let formElement = document.querySelector('form[name=profile-info]');
+
+// Открытие и закрытие попапа
 
 function closePopup(){
     popup.classList.remove('popup_opened');
 }
-closeButton.addEventListener('click', closePopup);
 
 function openPopup(){
     popup.classList.add('popup_opened');
+    popupName.value=profileName.textContent;
+    popupAbout.value=profileAbout.textContent;
 }
-editButton.addEventListener('click', openPopup);
 
-let profileName= document.querySelector('.profile__name');
-let profileNameContent= profileName.textContent;
-let popupName = document.querySelector('.popup__name');
-popupName.value=profileNameContent
+// Отправка формы попапа
 
-let profileAbout= document.querySelector('.profile__about');
-let profileAboutContent= profileAbout.textContent;
-let popupAbout = document.querySelector('.popup__about');
-popupAbout.value=profileAboutContent
-
-let saveChanges=document.querySelector('.save-button');
-function editProfile () {
-    let popupNameValue = popupName.value;
-    let popupAboutValue = popupAbout.value;
-    profileName.textContent=popupNameValue;
-    profileAbout.textContent=popupAboutValue;
+function editProfile (evt) {
+    evt.preventDefault();
+    profileName.textContent=popupName.value;
+    profileAbout.textContent=popupAbout.value;
     closePopup();
 }
-saveChanges.addEventListener('click', editProfile)
+
+
+closeButton.addEventListener('click', closePopup);
+editButton.addEventListener('click', openPopup);
+formElement.addEventListener('submit', editProfile);

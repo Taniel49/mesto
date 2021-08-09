@@ -9,7 +9,7 @@
 <body class="root">
     <div class="page root__page">
         <header class="header page__header">
-            <img class="logo" src="./images/logo.svg" alt="Лого проекта">
+            <img class="header__logo" src="./images/logo.svg" alt="Лого проекта">
         </header>
         <main>
             <section class="profile page__profile">
@@ -17,57 +17,57 @@
                     <img class="profile__avatar" src="./images/photo.jpg" alt="Аватар">
                     <div class="profile__inputs">
                         <div class="profile__name-with-button">
-                            <p class="profile__name">Жак-Ив Кусто</p>
-                            <button class="edit-button"></button>
+                            <h1 class="profile__name">Жак-Ив Кусто</h1>
+                            <button class="profile__edit-button" type="button"></button>
                         </div>
                         <p class="profile__about">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements page__elements">
-                <div class="element">
+                <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото места">
                     <div class="element__caption">
-                        <p class="element__name">Карачаевск</p>
-                        <button class="like-button"></button>
+                        <h2 class="element__name">Карачаевск</h2>
+                        <button class="element__like-button" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото места">
                     <div class="element__caption">
-                        <p class="element__name">Гора Эльбрус</p>
-                        <button class="like-button"></button>
+                        <h2 class="element__name">Гора Эльбрус</h2>
+                        <button class="element__like-button" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото места">
                     <div class="element__caption">
-                        <p class="element__name">Домбай</p>
-                        <button class="like-button"></button>
+                        <h2 class="element__name">Домбай</h2>
+                        <button class="element__like-button" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото места">
                     <div class="element__caption">
-                        <p class="element__name">Гора Эльбрус</p>
-                        <button class="like-button"></button>
+                        <h2 class="element__name">Гора Эльбрус</h2>
+                        <button class="element__like-button" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото места">
                     <div class="element__caption">
-                        <p class="element__name">Домбай</p>
-                        <button class="like-button"></button>
+                        <h2 class="element__name">Домбай</h2>
+                        <button class="element__like-button" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
+                </article>
+                <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото места">
                     <div class="element__caption">
-                        <p class="element__name">Карачаево-Черкесия</p>
-                        <button class="like-button"></button>
+                        <h2 class="element__name">Карачаево-Черкесия</h2>
+                        <button class="element__like-button" type="button"></button>
                     </div>
-                </div>
+                </article>
             </section>
         </main>
         <footer class="footer page__footer">
@@ -76,11 +76,13 @@
     </div>
     <div class="popup">
         <div class="popup__container">
-            <button class="close-button"></button>
+            <button class="popup__close-button" type="button"></button>
             <p class="popup__header">Редактировать профиль</p>
-            <input class="popup__name" type="text">
-            <input class="popup__about" type="text">
-            <button type="submit" class="save-button">Сохранить</button>
+            <form name="profile-info">
+                <input class="popup__inputs popup__input_name" type="text" name="name">
+                <input class="popup__inputs popup__input_about" type="text" name="about">
+                <button type="submit" class="popup__save-button">Сохранить</button>
+            </form>
         </div>
     </div>
     <script src="./scripts/script.js"></script>
