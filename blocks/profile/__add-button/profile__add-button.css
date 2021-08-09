@@ -9,6 +9,7 @@
     background-color:transparent;
     background-repeat: no-repeat;
     background-position: center;
+    margin-left: 18px;
 }
 
 .profile__add-button:hover{
@@ -20,6 +21,7 @@
     .profile__add-button{
         background-image: url("../../../images/add-button-small.svg");
         margin-top: 36px;
+        margin-left: 0;
         width: 282px;
         height: 50px;
     }

@@ -2,9 +2,9 @@ let popup = document.querySelector('.popup');
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close-button');
 let profileName= document.querySelector('.profile__name');
-let popupName = document.querySelector('.popup__inputs_name');
+let popupName = document.querySelector('.popup__inputs_type_name');
 let profileAbout= document.querySelector('.profile__about');
-let popupAbout = document.querySelector('.popup__inputs_about');
+let popupAbout = document.querySelector('.popup__inputs_type_about');
 let formElement = document.querySelector('form[name=profile-info]');
 
 // Открытие и закрытие попапа
