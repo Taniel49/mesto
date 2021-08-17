@@ -1,14 +1,18 @@
-let profilePopup = document.querySelector('#popup_profile');
-let elementsPopup = document.querySelector('#popup_elements');
-let editButton = document.querySelector('.profile__edit-button');
-let addButton = document.querySelector('.profile__add-button');
-let closeButton = document.querySelector('.popup__close-button');
-let profileName= document.querySelector('.profile__name');
-let popupName = document.querySelector('.popup__inputs_type_name');
-let profileAbout= document.querySelector('.profile__about');
-let popupAbout = document.querySelector('.popup__inputs_type_about');
-let formProfile = document.querySelector('form[name=profile-info]');
-let formElement = document.querySelector('form[name=element-content]');
+const profilePopup = document.querySelector('#popup_profile');
+const elementsPopup = document.querySelector('#popup_elements');
+const editButton = document.querySelector('.profile__edit-button');
+const addButton = document.querySelector('.profile__add-button');
+const closeButton = document.querySelector('.popup__close-button');
+const deleteButton = document.querySelector('.element__delete-button');
+const likeButton = document.querySelector('.element__like-button');
+const profileName= document.querySelector('.profile__name');
+const popupName = document.querySelector('.popup__inputs_type_name');
+const profileAbout= document.querySelector('.profile__about');
+const popupAbout = document.querySelector('.popup__inputs_type_about');
+const popupPlace = document.querySelector('.popup__inputs_type_place');
+const popupPicture = document.querySelector('.popup__inputs_type_picture');
+const formProfile = document.querySelector('form[name=profile-info]');
+const formElement = document.querySelector('form[name=element-content]');
 const elementTemplate = document.querySelector('.element-template').content;
 const elements = document.querySelector('.elements');
 const initialCards = [
@@ -48,12 +52,11 @@ initialCards.forEach(function (item) {
     elements.append(card);
 });
 
-
-
 // Открытие и закрытие попапов
-
 function closePopup(){
+    elementsPopup.classList.remove('popup_opened');
     profilePopup.classList.remove('popup_opened');
+
 }
 
 function openElementsPopup(){
@@ -66,8 +69,7 @@ function openProfilePopup(){
     popupAbout.value=profileAbout.textContent;
 }
 
-// Отправка формы попапов
-
+// Отправка формы попапа-профиля
 function editProfile (evt) {
     evt.preventDefault();
     profileName.textContent=popupName.value;
@@ -75,13 +77,35 @@ function editProfile (evt) {
     closePopup();
 }
 
+// Отправка формы попапа-карточек и удаление карточек
 function addElement (evt) {
+    evt.preventDefault();
 
+    const card = elementTemplate.cloneNode(true);
+
+    card.querySelector('.element__name').textContent = popupPlace.value;
+    card.querySelector('.element__picture').src= popupPicture.value;
+
+    elements.append(card);
+
+    closePopup();
 }
 
+function deleteElement(){
+    const elementItem = deleteButton.closest('.element');
+    elementItem.remove();
+}
 
+// Лайк карточек
+function likeElement(){
+    likeButton.closest('.element__like-button').classList.add('element__like-button_liked');
+}
+
+// Кнопки
 closeButton.addEventListener('click', closePopup);
 editButton.addEventListener('click', openProfilePopup);
 addButton.addEventListener('click', openElementsPopup);
 formProfile.addEventListener('submit', editProfile);
 formElement.addEventListener('submit', addElement);
+deleteButton.addEventListener('click', deleteElement);
+likeButton.addEventListener('click', likeElement);
