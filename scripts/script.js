@@ -1,15 +1,16 @@
-let popup = document.querySelector('.popup');
+let profilePopup = document.querySelector('#popup_profile');
+let elementsPopup = document.querySelector('#popup_elements');
 let editButton = document.querySelector('.profile__edit-button');
+let addButton = document.querySelector('.profile__add-button');
 let closeButton = document.querySelector('.popup__close-button');
 let profileName= document.querySelector('.profile__name');
 let popupName = document.querySelector('.popup__inputs_type_name');
 let profileAbout= document.querySelector('.profile__about');
 let popupAbout = document.querySelector('.popup__inputs_type_about');
-let formElement = document.querySelector('form[name=profile-info]');
-const elementTemplate = document.querySelector('#element-template').content;
+let formProfile = document.querySelector('form[name=profile-info]');
+let formElement = document.querySelector('form[name=element-content]');
+const elementTemplate = document.querySelector('.element-template').content;
 const elements = document.querySelector('.elements');
-const elementName = document.querySelector('.element__name');
-const elementPicture = document.querySelector('.element__picture');
 const initialCards = [
   {
     name: 'Архыз',
@@ -37,25 +38,35 @@ const initialCards = [
   }
 ];
 
-// Добавление элементов
-elements.append(elementTemplate);
-elementName.textContent='Архыз';
-elementPicture.setAttribute("src", "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg");
+// Добавление карточек-заглушек
+initialCards.forEach(function (item) {
+    const card = elementTemplate.cloneNode(true);
+
+    card.querySelector('.element__name').textContent = item.name;
+    card.querySelector('.element__picture').src= item.link;
+
+    elements.append(card);
+});
 
 
-// Открытие и закрытие попапа
+
+// Открытие и закрытие попапов
 
 function closePopup(){
-    popup.classList.remove('popup_opened');
+    profilePopup.classList.remove('popup_opened');
 }
 
-function openPopup(){
-    popup.classList.add('popup_opened');
+function openElementsPopup(){
+    elementsPopup.classList.add('popup_opened');
+}
+
+function openProfilePopup(){
+    profilePopup.classList.add('popup_opened');
     popupName.value=profileName.textContent;
     popupAbout.value=profileAbout.textContent;
 }
 
-// Отправка формы попапа
+// Отправка формы попапов
 
 function editProfile (evt) {
     evt.preventDefault();
@@ -64,7 +75,13 @@ function editProfile (evt) {
     closePopup();
 }
 
+function addElement (evt) {
+
+}
+
 
 closeButton.addEventListener('click', closePopup);
-editButton.addEventListener('click', openPopup);
-formElement.addEventListener('submit', editProfile);
+editButton.addEventListener('click', openProfilePopup);
+addButton.addEventListener('click', openElementsPopup);
+formProfile.addEventListener('submit', editProfile);
+formElement.addEventListener('submit', addElement);
