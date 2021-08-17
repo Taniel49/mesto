@@ -32,6 +32,7 @@
                         <h2 class="element__name">Карачаевск</h2>
                         <button class="element__like-button" type="button"></button>
                     </div>
+                    <button class="element__delete-button" type="button"></button>
                 </article>
                 <article class="element">
                     <img class="element__picture" src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото места">
@@ -85,6 +86,27 @@
             </form>
         </div>
     </div>
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close-button" type="button"></button>
+            <p class="popup__header">Новое место</p>
+            <form name="profile-info">
+                <input class="popup__inputs popup__inputs_type_place" type="text" name="place" placeholder="Название">
+                <input class="popup__inputs popup__inputs_type_picture" type="text" name="picture" placeholder="Ссылка на картинку">
+                <button type="submit" class="popup__create-button">Создать</button>
+            </form>
+        </div>
+    </div>
+    <template>
+        <article class="element" id="element-template">
+            <img class="element__picture" src="" alt="Фото места">
+            <div class="element__caption">
+                <h2 class="element__name"></h2>
+                <button class="element__like-button" type="button"></button>
+            </div>
+            <button class="element__delete-button" type="button"></button>
+        </article>
+    </template>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

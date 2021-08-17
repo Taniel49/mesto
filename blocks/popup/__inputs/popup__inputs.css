@@ -18,6 +18,13 @@
     margin-bottom:0;
 }
 
+.popup__inputs::placeholder {
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 17px;
+    color: rgba(0,0,0,0.2);
+}
+
 @media screen and (max-width:767px){
     .popup__inputs{
         width: 238px;
