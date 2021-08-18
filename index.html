@@ -7,64 +7,65 @@
     <title>Место</title>
 </head>
 <body class="root">
-    <div class="page root__page">
-        <header class="header page__header">
-            <img class="header__logo" src="./images/logo.svg" alt="Лого проекта">
-        </header>
-        <main>
-            <section class="profile page__profile">
-                <div class="profile__info">
-                    <img class="profile__avatar" src="./images/photo.jpg" alt="Аватар">
-                    <div class="profile__inputs">
-                        <div class="profile__name-with-button">
-                            <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button" type="button"></button>
-                        </div>
-                        <p class="profile__about">Исследователь океана</p>
+<div class="page root__page">
+    <header class="header page__header">
+        <img class="header__logo" src="./images/logo.svg" alt="Лого проекта">
+    </header>
+    <main>
+        <section class="profile page__profile">
+            <div class="profile__info">
+                <img class="profile__avatar" src="./images/photo.jpg" alt="Аватар">
+                <div class="profile__inputs">
+                    <div class="profile__name-with-button">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button"></button>
                     </div>
+                    <p class="profile__about">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button" type="button"></button>
-            </section>
-            <section class="elements page__elements">
-
-            </section>
-        </main>
-        <footer class="footer page__footer">
-            <p class="copyright">© 2020 Mesto Russia</p>
-        </footer>
-    </div>
-    <div class="popup" id="popup_profile">
-        <div class="popup__container">
-            <button class="popup__close-button" type="button"></button>
-            <p class="popup__header">Редактировать профиль</p>
-            <form name="profile-info">
-                <input class="popup__inputs popup__inputs_type_name" type="text" name="name">
-                <input class="popup__inputs popup__inputs_type_about" type="text" name="about">
-                <button type="submit" class="popup__save-button">Сохранить</button>
-            </form>
-        </div>
-    </div>
-    <div class="popup" id="popup_elements">
-        <div class="popup__container">
-            <button class="popup__close-button" type="button"></button>
-            <p class="popup__header">Новое место</p>
-            <form name="element-content">
-                <input class="popup__inputs popup__inputs_type_place" type="text" name="place" placeholder="Название">
-                <input class="popup__inputs popup__inputs_type_picture" type="text" name="picture" placeholder="Ссылка на картинку">
-                <button type="submit" class="popup__create-button">Создать</button>
-            </form>
-        </div>
-    </div>
-    <template class="element-template">
-        <article class="element">
-            <img class="element__picture" src="" alt="Фото места">
-            <div class="element__caption">
-                <h2 class="element__name"></h2>
-                <button class="element__like-button" type="button"></button>
             </div>
-            <button class="element__delete-button" type="button"></button>
-        </article>
-    </template>
-    <script src="./scripts/script.js"></script>
+            <button class="profile__add-button" type="button"></button>
+        </section>
+        <section class="elements page__elements">
+
+        </section>
+    </main>
+    <footer class="footer page__footer">
+        <p class="copyright">© 2020 Mesto Russia</p>
+    </footer>
+</div>
+<div class="popup" id="popup_profile">
+    <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <p class="popup__header">Редактировать профиль</p>
+        <form name="profile-info">
+            <input class="popup__inputs popup__inputs_type_name" type="text" name="name">
+            <input class="popup__inputs popup__inputs_type_about" type="text" name="about">
+            <button type="submit" class="popup__save-button">Сохранить</button>
+        </form>
+    </div>
+</div>
+<div class="popup" id="popup_elements">
+    <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <p class="popup__header">Новое место</p>
+        <form name="element-content">
+            <input class="popup__inputs popup__inputs_type_place" type="text" name="place" placeholder="Название">
+            <input class="popup__inputs popup__inputs_type_picture" type="text" name="picture"
+                   placeholder="Ссылка на картинку">
+            <button type="submit" class="popup__create-button">Создать</button>
+        </form>
+    </div>
+</div>
+<template class="element-template">
+    <article class="element">
+        <img class="element__picture" src="" alt="Фото места">
+        <div class="element__caption">
+            <h2 class="element__name"></h2>
+            <button class="element__like-button" type="button"></button>
+        </div>
+        <button class="element__delete-button" type="button"></button>
+    </article>
+</template>
+<script src="./scripts/script.js"></script>
 </body>
 </html>
