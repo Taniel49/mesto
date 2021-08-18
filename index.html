@@ -56,9 +56,16 @@
         </form>
     </div>
 </div>
+<div class="popup" id="popup_picture">
+    <div class="popup__picture-container">
+        <img class="popup__picture" src="" alt="Фото места">
+        <button class="popup__close-button" type="button"></button>
+        <p class="popup__caption"></p>
+    </div>
+</div>
 <template class="element-template">
     <article class="element">
-        <img class="element__picture" src="" alt="Фото места">
+        <button class="element__open-picture-button" type="button"><img class="element__picture" src="" alt="Фото места"></button>
         <div class="element__caption">
             <h2 class="element__name"></h2>
             <button class="element__like-button" type="button"></button>

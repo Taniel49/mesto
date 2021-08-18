@@ -1,5 +1,6 @@
 const profilePopup = document.querySelector('#popup_profile');
 const elementsPopup = document.querySelector('#popup_elements');
+const picturePopup = document.querySelector('#popup_picture');
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
@@ -40,11 +41,12 @@ const initialCards = [
     }
 ];
 
-// Добавление карточек
+// Функция добавления, удаления, лайка и открытия карточек
 function createCard(name, picture) {
     const card = elementTemplate.cloneNode(true);
     const deleteButton = card.querySelector('.element__delete-button');
     const likeButton = card.querySelector('.element__like-button');
+    const openPictureButton = card.querySelector('.element__open-picture-button')
 
     card.querySelector('.element__name').textContent = name;
     card.querySelector('.element__picture').src = picture;
@@ -58,6 +60,13 @@ function createCard(name, picture) {
         likeButton.closest('.element__like-button').classList.toggle('element__like-button_liked');
     }
 
+    function openPicture() {
+        picturePopup.classList.add('popup_opened');
+        document.querySelector('.popup__picture').src = picture;
+        document.querySelector('.popup__caption').textContent = name;
+    }
+
+    openPictureButton.addEventListener('click', openPicture);
     deleteButton.addEventListener('click', deleteElement);
     likeButton.addEventListener('click', likeElement);
     elements.append(card);
@@ -72,6 +81,7 @@ initialCards.forEach(function (item) {
 function closePopup() {
     elementsPopup.classList.remove('popup_opened');
     profilePopup.classList.remove('popup_opened');
+    picturePopup.classList.remove('popup_opened');
 }
 
 function openElementsPopup() {
@@ -92,7 +102,7 @@ function editProfile(evt) {
     closePopup();
 }
 
-// Отправка формы попапа-карточек и удаление карточек
+// Отправка формы попапа-карточек
 function addElement(evt) {
     evt.preventDefault();
 
