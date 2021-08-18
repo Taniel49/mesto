@@ -35,7 +35,7 @@
 </div>
 <div class="popup" id="popup_profile">
     <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>
+        <button class="popup__close-button" type="button" id="profile-close-button"></button>
         <p class="popup__header">Редактировать профиль</p>
         <form name="profile-info">
             <input class="popup__inputs popup__inputs_type_name" type="text" name="name">
@@ -46,7 +46,7 @@
 </div>
 <div class="popup" id="popup_elements">
     <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>
+        <button class="popup__close-button" type="button" id="elements-close-button"></button>
         <p class="popup__header">Новое место</p>
         <form name="element-content">
             <input class="popup__inputs popup__inputs_type_place" type="text" name="place" placeholder="Название">
@@ -58,14 +58,14 @@
 </div>
 <div class="popup" id="popup_picture">
     <div class="popup__picture-container">
-        <img class="popup__picture" src="" alt="Фото места">
-        <button class="popup__close-button" type="button"></button>
+        <img class="popup__picture" src="" alt="">
+        <button class="popup__close-button" type="button" id="picture-close-button"></button>
         <p class="popup__caption"></p>
     </div>
 </div>
 <template class="element-template">
     <article class="element">
-        <button class="element__open-picture-button" type="button"><img class="element__picture" src="" alt="Фото места"></button>
+        <button class="element__open-picture-button" type="button"><img class="element__picture" src="" alt=""></button>
         <div class="element__caption">
             <h2 class="element__name"></h2>
             <button class="element__like-button" type="button"></button>
