@@ -41,6 +41,9 @@
 @import url("../blocks/popup/__caption/popup__caption.css");
 @import url("../blocks/popup/__picture/popup__picture.css");
 @import url("../blocks/popup/__picture-container/popup__picture-container.css");
+@import url("../blocks/popup/__inputs-error/popup__inputs-error.css");
+@import url("../blocks/popup/__inputs_type_error/popup__inputs_type_error.css");
+@import url("../blocks/popup/__inputs-error/_active/popup__inputs-error_active.css");
 
 /*  кнопки  */
 @import url("../blocks/profile/__edit-button/profile__edit-button.css");

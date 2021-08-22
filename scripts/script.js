@@ -83,18 +83,18 @@ initialCards.forEach(function (item) {
 
 // Открытие и закрытие попапов
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+    popup.classList.remove('popup_opened');
 }
 
-function closeProfilePopup(){
+function closeProfilePopup() {
     closePopup(profilePopup);
 }
 
-function closeElementsPopup(){
+function closeElementsPopup() {
     closePopup(elementsPopup);
 }
 
-function closePicturePopup(){
+function closePicturePopup() {
     closePopup(picturePopup);
 }
 
