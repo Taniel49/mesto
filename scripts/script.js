@@ -141,7 +141,7 @@ formProfile.addEventListener('submit', editProfile);
 formElement.addEventListener('submit', addElement);
 document.addEventListener('keydown', closePopupByEsc);
 popups.forEach(function (item) {
-    item.addEventListener('click', closePopups)
+    item.addEventListener('click', function (evt){ if(evt.target.classList.contains('popup')) {closePopups()}})
 });
 closeButtons.forEach(function (item) {
     item.addEventListener('click', closePopups)
