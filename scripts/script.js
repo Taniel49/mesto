@@ -1,3 +1,4 @@
+const popups = document.querySelectorAll('.popup');
 const profilePopup = document.querySelector('#popup_profile');
 const elementsPopup = document.querySelector('#popup_elements');
 const picturePopup = document.querySelector('#popup_picture');
@@ -81,22 +82,24 @@ initialCards.forEach(function (item) {
     elements.prepend(createCard(item.name, item.link));
 });
 
-// Открытие и закрытие попапов
+// Закрытие попапов
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
 
-function closeProfilePopup() {
-    closePopup(profilePopup);
+function closePopups() {
+    popups.forEach(function (item) {
+        closePopup(item)
+    })
 }
 
-function closeElementsPopup() {
-    closePopup(elementsPopup);
+function closePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        closePopups()
+    }
 }
 
-function closePicturePopup() {
-    closePopup(picturePopup);
-}
+// Открытие попапов
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -129,12 +132,16 @@ function addElement(evt) {
     closePopup(elementsPopup);
 }
 
+
 // Кнопки
-profileCloseButton.addEventListener('click', closeProfilePopup);
-elementsCloseButton.addEventListener('click', closeElementsPopup);
-pictureCloseButton.addEventListener('click', closePicturePopup);
+profileCloseButton.addEventListener('click', closePopups);
+elementsCloseButton.addEventListener('click', closePopups);
+pictureCloseButton.addEventListener('click', closePopups);
 editButton.addEventListener('click', openProfilePopup);
 addButton.addEventListener('click', openElementsPopup);
 formProfile.addEventListener('submit', editProfile);
 formElement.addEventListener('submit', addElement);
-
+document.addEventListener('keydown', closePopupByEsc);
+popups.forEach(function (item) {
+    item.addEventListener('click', closePopups)
+});
