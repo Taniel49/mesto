@@ -44,6 +44,7 @@
 @import url("../blocks/popup/__inputs-error/popup__inputs-error.css");
 @import url("../blocks/popup/__inputs_type_error/popup__inputs_type_error.css");
 @import url("../blocks/popup/__inputs-error/_active/popup__inputs-error_active.css");
+@import url("../blocks/popup/__inactive-submit-button/popup__inactive-submit-button.css");
 
 /*  кнопки  */
 @import url("../blocks/profile/__edit-button/profile__edit-button.css");
@@ -55,6 +56,7 @@
 @import url("../blocks/popup/__save-button/popup__save-button.css");
 @import url("../blocks/popup/__close-button/popup__close-button.css");
 @import url("../blocks/popup/__create_button/popup__create-button.css");
+@import url("../blocks/popup/__inactive-submit-button/popup__inactive-submit-button.css");
 
 /*  миксы  */
 @import url("../blocks/root/__page/root__page.css");
