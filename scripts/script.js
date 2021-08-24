@@ -15,32 +15,6 @@ const formProfile = document.querySelector('form[name=profile-info]');
 const formElement = document.querySelector('form[name=element-content]');
 const elementTemplate = document.querySelector('.element-template').content;
 const elements = document.querySelector('.elements');
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 // Функция добавления, удаления, лайка и открытия карточек
 function createCard(name, picture) {
@@ -81,26 +55,22 @@ initialCards.forEach(function (item) {
 });
 
 // Закрытие попапов
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-}
-
-function closePopups() {
-    popups.forEach(function (item) {
-        closePopup(item)
-    })
+function closePopup() {
+    const popupOpened = document.querySelector('.popup_opened');
+    popupOpened.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
 }
 
 function closePopupByEsc(evt) {
     if (evt.key === 'Escape') {
-        closePopups()
+        closePopup()
     }
 }
 
 // Открытие попапов
-
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
 }
 
 function openElementsPopup() {
@@ -133,16 +103,17 @@ function addElement(evt) {
 
 // Кнопки
 closeButtons.forEach(function (item) {
-    item.addEventListener('click', closePopups)
+    item.addEventListener('click', closePopup)
 });
 editButton.addEventListener('click', openProfilePopup);
 addButton.addEventListener('click', openElementsPopup);
 formProfile.addEventListener('submit', editProfile);
 formElement.addEventListener('submit', addElement);
-document.addEventListener('keydown', closePopupByEsc);
 popups.forEach(function (item) {
-    item.addEventListener('click', function (evt){ if(evt.target.classList.contains('popup')) {closePopups()}})
+    item.addEventListener('click', function (evt) {
+        if (evt.target.classList.contains('popup')) {
+            closePopup()
+        }
+    })
 });
-closeButtons.forEach(function (item) {
-    item.addEventListener('click', closePopups)
-});
+
