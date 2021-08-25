@@ -74,13 +74,17 @@ function openPopup(popup) {
 }
 
 function openElementsPopup() {
+    popupPlace.value = '';
+    popupPicture.value = '';
     openPopup(elementsPopup);
+    resetValidation(elementsPopup);
 }
 
 function openProfilePopup() {
     openPopup(profilePopup);
     popupName.value = profileName.textContent;
     popupAbout.value = profileAbout.textContent;
+    resetValidation(profilePopup);
 }
 
 // Отправка формы попапа-профиля

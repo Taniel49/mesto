@@ -58,10 +58,20 @@ function enableValidation(settings) {
 }
 
 enableValidation({
-  formSelector: '.form',
-  inputSelector: '.popup__inputs',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__inactive-submit-button',
-  inputErrorClass: 'popup__inputs_type_error',
-  errorClass: 'popup__inputs-error_active'
+    formSelector: '.form',
+    inputSelector: '.popup__inputs',
+    submitButtonSelector: '.popup__submit-button',
+    inactiveButtonClass: 'popup__inactive-submit-button',
+    inputErrorClass: 'popup__inputs_type_error',
+    errorClass: 'popup__inputs-error_active'
 });
+
+function resetValidation(popup) {
+    popup.querySelectorAll('.popup__inputs').forEach((item) => {
+        item.classList.remove('popup__inputs_type_error')
+    });
+    popup.querySelector('.popup__submit-button').classList.remove('popup__inactive-submit-button');
+    popup.querySelectorAll('.popup__inputs-error').forEach((item) => {
+        item.classList.remove('popup__inputs-error_active')
+    });
+}
