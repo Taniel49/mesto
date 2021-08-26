@@ -44,6 +44,7 @@ function toggleButtonState(inputList, buttonElement, settings) {
         buttonElement.setAttribute("disabled", "disabled");
     } else {
         buttonElement.classList.remove(settings.inactiveButtonClass);
+        buttonElement.removeAttribute("disabled");
     }
 }
 
