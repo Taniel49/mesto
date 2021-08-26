@@ -41,6 +41,7 @@ function hasInvalidInput(inputList) {
 function toggleButtonState(inputList, buttonElement, settings) {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(settings.inactiveButtonClass);
+        buttonElement.setAttribute("disabled", "disabled");
     } else {
         buttonElement.classList.remove(settings.inactiveButtonClass);
     }
@@ -70,7 +71,8 @@ function resetValidation(popup) {
     popup.querySelectorAll('.popup__inputs').forEach((item) => {
         item.classList.remove('popup__inputs_type_error')
     });
-    popup.querySelector('.popup__submit-button').classList.remove('popup__inactive-submit-button');
+    popup.querySelector('.popup__submit-button').classList.add('popup__inactive-submit-button');
+    popup.querySelector('.popup__submit-button').setAttribute("disabled", "disabled");
     popup.querySelectorAll('.popup__inputs-error').forEach((item) => {
         item.classList.remove('popup__inputs-error_active')
     });
