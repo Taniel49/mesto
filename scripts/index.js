@@ -1,6 +1,5 @@
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
-import {openPopup, closePopup} from './utils.js';
 
 const popups = document.querySelectorAll('.popup');
 const closeButtons = document.querySelectorAll('.popup__close-button');
@@ -17,48 +16,79 @@ const popupPicture = document.querySelector('.popup__inputs_type_picture');
 const formProfile = document.querySelector('form[name=profile-info]');
 const formElement = document.querySelector('form[name=element-content]');
 const elements = document.querySelector('.elements');
-const formList = Array.from(document.querySelectorAll('.form'));
+const picturePopup = document.querySelector('#popup_picture');
+const template = document.querySelector('.element-template');
+
+/*Общее добавление карточек*/
+function createCard(name, link, templateSelector) {
+    const card = new Card(name, link, templateSelector, handleCardClick);
+    return card.generateCard();
+}
 
 /*Добавление карточек-заглушек*/
 initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link);
-
-    const cardElement = card.generateCard();
-
-    elements.prepend(cardElement);
+    elements.prepend(createCard(item.name, item.link, template));
 });
 
 /*Добавление новых карточек*/
 function addElement(evt) {
     evt.preventDefault();
-    const card = new Card(popupPlace.value, popupPicture.value);
-    const cardElement = card.generateCard();
-    elements.prepend(cardElement);
+    elements.prepend(createCard(popupPlace.value, popupPicture.value, template));
 
     closePopup(elementsPopup);
 }
 
 /*Добавление и сброс валидации*/
-formList.forEach((item) => {
-    const validator = new FormValidator({
+function enableAndResetValidation(settings, form) {
+    const validator = new FormValidator(settings, form);
+    validator.resetValidation();
+    validator.enableValidation();
+}
+
+function enableValidationProfile() {
+    enableAndResetValidation({
         inputSelector: '.popup__inputs',
         submitButtonSelector: '.popup__submit-button',
         inactiveButtonClass: 'popup__inactive-submit-button',
         inputErrorClass: 'popup__inputs_type_error',
         errorClass: 'popup__inputs-error_active'
-    }, item);
-    validator.enableValidation();
-});
+    }, formProfile);
+}
 
-function resetValidation(popup) {
-    popup.querySelectorAll('.popup__inputs').forEach((item) => {
-        item.classList.remove('popup__inputs_type_error')
-    });
-    popup.querySelector('.popup__submit-button').classList.add('popup__inactive-submit-button');
-    popup.querySelector('.popup__submit-button').setAttribute("disabled", "disabled");
-    popup.querySelectorAll('.popup__inputs-error').forEach((item) => {
-        item.classList.remove('popup__inputs-error_active')
-    });
+function enableValidationElements() {
+    enableAndResetValidation({
+        inputSelector: '.popup__inputs',
+        submitButtonSelector: '.popup__submit-button',
+        inactiveButtonClass: 'popup__inactive-submit-button',
+        inputErrorClass: 'popup__inputs_type_error',
+        errorClass: 'popup__inputs-error_active'
+    }, formElement);
+}
+
+/*Открытие и закрытие попапа - общее*/
+
+function handleCardClick(name, link) {
+    picturePopup.querySelector('.popup__picture').src = link;
+    picturePopup.querySelector('.popup__picture').alt = name;
+    picturePopup.querySelector('.popup__caption').textContent = name;
+    openPopup(picturePopup);
+}
+
+function openPopup(popup) {
+    popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
+}
+
+function closePopup() {
+    const popupOpened = document.querySelector('.popup_opened');
+    popupOpened.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
+}
+
+function closePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        closePopup()
+    }
 }
 
 /*Открытие попапов*/
@@ -66,14 +96,14 @@ function openElementsPopup() {
     popupPlace.value = '';
     popupPicture.value = '';
     openPopup(elementsPopup);
-    resetValidation(elementsPopup);
+    enableValidationElements();
 }
 
 function openProfilePopup() {
     openPopup(profilePopup);
     popupName.value = profileName.textContent;
     popupAbout.value = profileAbout.textContent;
-    resetValidation(profilePopup);
+    enableValidationProfile();
 }
 
 // Отправка формы попапа-профиля
