@@ -18,6 +18,13 @@ const formElement = document.querySelector('form[name=element-content]');
 const elements = document.querySelector('.elements');
 const picturePopup = document.querySelector('#popup_picture');
 const template = document.querySelector('.element-template');
+const validationSettings = {
+        inputSelector: '.popup__inputs',
+        submitButtonSelector: '.popup__submit-button',
+        inactiveButtonClass: 'popup__inactive-submit-button',
+        inputErrorClass: 'popup__inputs_type_error',
+        errorClass: 'popup__inputs-error_active'
+    }
 
 /*Общее добавление карточек*/
 function createCard(name, link, templateSelector) {
@@ -38,32 +45,26 @@ function addElement(evt) {
     closePopup(elementsPopup);
 }
 
-/*Добавление и сброс валидации*/
-function enableAndResetValidation(settings, form) {
+/*Добавление валидации*/
+const profileFormValidator = new FormValidator(validationSettings, formProfile);
+const elementFormValidator = new FormValidator(validationSettings, formElement);
+
+profileFormValidator.enableValidation();
+elementFormValidator.enableValidation();
+
+/*function enableAndResetValidation(settings, form) {
     const validator = new FormValidator(settings, form);
     validator.resetValidation();
     validator.enableValidation();
 }
 
 function enableValidationProfile() {
-    enableAndResetValidation({
-        inputSelector: '.popup__inputs',
-        submitButtonSelector: '.popup__submit-button',
-        inactiveButtonClass: 'popup__inactive-submit-button',
-        inputErrorClass: 'popup__inputs_type_error',
-        errorClass: 'popup__inputs-error_active'
-    }, formProfile);
+    enableAndResetValidation(validationSettings, formProfile);
 }
 
 function enableValidationElements() {
-    enableAndResetValidation({
-        inputSelector: '.popup__inputs',
-        submitButtonSelector: '.popup__submit-button',
-        inactiveButtonClass: 'popup__inactive-submit-button',
-        inputErrorClass: 'popup__inputs_type_error',
-        errorClass: 'popup__inputs-error_active'
-    }, formElement);
-}
+    enableAndResetValidation(validationSettings, formElement);
+}*/
 
 /*Открытие и закрытие попапа - общее*/
 
@@ -96,14 +97,14 @@ function openElementsPopup() {
     popupPlace.value = '';
     popupPicture.value = '';
     openPopup(elementsPopup);
-    enableValidationElements();
+    elementFormValidator.resetValidation();
 }
 
 function openProfilePopup() {
     openPopup(profilePopup);
     popupName.value = profileName.textContent;
     popupAbout.value = profileAbout.textContent;
-    enableValidationProfile();
+    profileFormValidator.resetValidation();
 }
 
 // Отправка формы попапа-профиля
