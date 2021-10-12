@@ -1,9 +1,9 @@
 /*Добавление карточек*/
 
 export class Card {
-    constructor(name, link, templateSelector,handleCardClick) {
-        this._name = name;
-        this._link = link;
+    constructor(data, templateSelector, handleCardClick) {
+        this._name = data.name;
+        this._link = data.link;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
         this._element = this._getTemplate();
@@ -34,8 +34,8 @@ export class Card {
     }
 
     _setEventListeners() {
-       this._element.querySelector('.element__open-picture-button').addEventListener('click', () => {
-            this._handleCardClick(this._name, this._link)
+        this._element.querySelector('.element__open-picture-button').addEventListener('click', () => {
+            this._handleCardClick()
         });
         this._element.querySelector('.element__delete-button').addEventListener('click', () => {
             this._deleteElement()
