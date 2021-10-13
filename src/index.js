@@ -1,6 +1,6 @@
-import {Card} from '../components/Card.js';
-import Section from '../components/Section.js';
-import {FormValidator} from '../components/FormValidator.js';
+import {Card} from './scripts/components/Card.js';
+import Section from './scripts/components/Section.js';
+import {FormValidator} from './scripts/components/FormValidator.js';
 import {
     profilePopup,
     elementsPopup,
@@ -16,10 +16,10 @@ import {
     template,
     validationSettings,
     initialCards
-} from '../utils/constants.js';
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
+} from './scripts/utils/constants.js';
+import PopupWithImage from "./scripts/components/PopupWithImage.js";
+import PopupWithForm from "./scripts/components/PopupWithForm.js";
+import UserInfo from "./scripts/components/UserInfo.js";
 
 /*Создание карточек-заглушек*/
 const addDefaultElements = new Section({
@@ -60,14 +60,18 @@ addButton.addEventListener('click', () => {
 });
 
 /*Попап профиля*/
+const userInfo = new UserInfo('profile__name', 'profile__about');
+
 const handleProfilePopup = new PopupWithForm(profilePopup, () => {
-    const userInfo = new UserInfo(popupName.value, popupAbout.value);
-    userInfo.setUserInfo();
+    userInfo.setUserInfo(popupName.value, popupAbout.value);
     handleProfilePopup.closePopup();
-})
+});
 
 handleProfilePopup.setEventListeners();
 editButton.addEventListener('click', () => {
+    const {userName, userDescription} = userInfo.getUserInfo();
+    popupName.value = userName;
+    popupAbout.value = userDescription;
     handleProfilePopup.openPopup();
     profileFormValidator.resetValidation();
 });
