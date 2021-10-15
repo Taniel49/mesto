@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Проект позволяет пользователю размещать фотографии с подписями в своем профиле. На данный момент основной функционал проекта - возможность редактирования текстовой информации о профиле.  \r Проект выполнен с использованием HTML, CSS и JS. Проект не поддерживает кроссбраузерность, основным браузером является GoogleChrome. Проект адаптирован под мобильные устройства.  \r В планах - развивать функционал проекта, добавить возможность редактировать галерею и реализовать постановку лайков фотографиям.  \r Ссылка на GitHub Pages: https://taniel49.github.io/mesto/",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taniel49/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taniel49/mesto/issues"
+  },
+  "homepage": "https://github.com/Taniel49/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.4.0",
+    "cssnano": "^5.0.8",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.4.2",
+    "postcss-loader": "^6.2.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "core-js": "^3.18.3"
+  }
+}
