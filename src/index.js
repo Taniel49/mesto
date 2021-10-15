@@ -1,3 +1,26 @@
+import './pages/index.css';
+
+import './images/add-button.svg';
+import './images/add-button-small.svg';
+import './images/close-button.svg';
+import './images/close-button-small.svg';
+import './images/delete-button.svg';
+import './images/edit-button.svg';
+import './images/kirill-pershin-1088404-unsplash.png';
+import './images/kirill-pershin-1404681-unsplash.png';
+import './images/kirill-pershin-1556355-unsplash.png';
+import './images/like-button.svg';
+import './images/like-button_liked.svg';
+import './images/logo.svg';
+import './images/photo.jpg';
+
+import './fonts/Inter-Black.woff';
+import './fonts/Inter-Black.woff2';
+import './fonts/Inter-Medium.woff';
+import './fonts/Inter-Medium.woff2';
+import './fonts/Inter-Regular.woff';
+import './fonts/Inter-Regular.woff2';
+
 import {Card} from './scripts/components/Card.js';
 import Section from './scripts/components/Section.js';
 import {FormValidator} from './scripts/components/FormValidator.js';
