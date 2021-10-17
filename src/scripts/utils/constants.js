@@ -1,16 +1,11 @@
-export const profilePopup = document.querySelector('#popup_profile');
-export const elementsPopup = document.querySelector('#popup_elements');
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
-export const profileName = document.querySelector('.profile__name');
 export const popupName = document.querySelector('.popup__inputs_type_name');
-export const profileAbout = document.querySelector('.profile__about');
 export const popupAbout = document.querySelector('.popup__inputs_type_about');
 export const popupPlace = document.querySelector('.popup__inputs_type_place');
 export const popupPicture = document.querySelector('.popup__inputs_type_picture');
 export const formProfile = document.querySelector('form[name=profile-info]');
 export const formElement = document.querySelector('form[name=element-content]');
-export const picturePopup = document.querySelector('#popup_picture');
 export const template = document.querySelector('.element-template');
 export const validationSettings = {
     inputSelector: '.popup__inputs',
