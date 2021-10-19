@@ -1,4 +1,3 @@
-import {popupPicture, popupPlace} from "../utils/constants";
 
 export default class Section {
     constructor({items, renderer}, containerSelector) {
