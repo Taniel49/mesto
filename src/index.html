@@ -13,13 +13,16 @@
     <main>
         <section class="profile page__profile">
             <div class="profile__info">
-                <img class="profile__avatar" src="<%=require('./images/photo.jpg')%>" alt="Аватар">
+                <button class="profile__avatar-container">
+                    <img class="profile__avatar" src="<%=require('./images/photo.jpg')%>" alt="Аватар">
+                    <img class="profile__avatar-overlay" src="<%=require('./images/Vector.svg')%>">
+                </button>
                 <div class="profile__inputs">
                     <div class="profile__name-with-button">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name"></h1>
                         <button class="profile__edit-button" type="button"></button>
                     </div>
-                    <p class="profile__about">Исследователь океана</p>
+                    <p class="profile__about"></p>
                 </div>
             </div>
             <button class="profile__add-button" type="button"></button>
@@ -62,6 +65,29 @@
         </form>
     </div>
 </div>
+
+<div class="popup" id="popup_avatar">
+    <div class="popup__container">
+        <button class="popup__close-button" type="button" id="avatar-close-button"></button>
+        <p class="popup__header">Обновить аватар</p>
+        <form class="form" name="avatar-content" novalidate>
+            <input class="popup__inputs popup__inputs_type_avatar" id="avatar-input" type="url" name="avatar"
+                   placeholder="Ссылка на картинку" required>
+            <span class="popup__inputs-error picture-input-error"></span>
+            <button type="submit" class="popup__create-button popup__submit-button">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<div class="popup" id="popup_delete">
+    <div class="popup__container">
+        <button class="popup__close-button" type="button" id="delete-close-button"></button>
+        <p class="popup__header">Вы уверены?</p>
+            <button type="submit" class="popup__delete-button popup__submit-button popup__create-button">Да</button>
+        </form>
+    </div>
+</div>
+
 <div class="popup" id="popup_picture">
     <div class="popup__picture-container">
         <img class="popup__picture" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
@@ -77,7 +103,10 @@
                                                                         alt=""></button>
         <div class="element__caption">
             <h2 class="element__name"></h2>
+            <div class="element__like-container">
             <button class="element__like-button" type="button"></button>
+            <div class="element__like-number">0</div>
+            </div>
         </div>
         <button class="element__delete-button" type="button"></button>
     </article>
