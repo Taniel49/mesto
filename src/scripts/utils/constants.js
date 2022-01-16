@@ -1,11 +1,12 @@
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
-export const popupName = document.querySelector('.popup__inputs_type_name');
-export const popupAbout = document.querySelector('.popup__inputs_type_about');
-export const popupPlace = document.querySelector('.popup__inputs_type_place');
-export const popupPicture = document.querySelector('.popup__inputs_type_picture');
+export const inputTypeName = document.querySelector('.popup__inputs_type_name');
+export const inputTypeAbout = document.querySelector('.popup__inputs_type_about');
+export const inputTypePlace = document.querySelector('.popup__inputs_type_place');
+export const inputTypePicture = document.querySelector('.popup__inputs_type_picture');
+export const inputTypeAvatar = document.querySelector('.popup__inputs_type_avatar');
 export const formProfile = document.querySelector('form[name=profile-info]');
-export const formElement = document.querySelector('form[name=element-content]');
+export const formCard = document.querySelector('form[name=element-content]');
 export const template = document.querySelector('.element-template');
 export const validationSettings = {
     inputSelector: '.popup__inputs',
@@ -15,8 +16,9 @@ export const validationSettings = {
     errorClass: 'popup__inputs-error_active'
 }
 
+/*
 export const initialCards = [
-   /* {
+    {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
     },
@@ -39,5 +41,5 @@ export const initialCards = [
     {
         name: 'Байкал',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }*/
-];
+    }
+];*/

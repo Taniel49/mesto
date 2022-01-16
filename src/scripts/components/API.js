@@ -4,12 +4,20 @@ export class API {
         this._authorization = authorization;
     }
 
+    _checkResult(res){
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+
+
     getProfile(){
         return fetch(`${this._URL}/users/me`, {
             headers: {
                 authorization: this._authorization
             }
-        })
+        }).then(this._checkResult)
     }
 
     getInitialCards() {
@@ -17,7 +25,7 @@ export class API {
             headers: {
                 authorization: this._authorization
             }
-        })
+        }).then(this._checkResult)
     }
 
     postCard(item) {
@@ -31,7 +39,7 @@ export class API {
                 name: item.name,
                 link: item.link
             })
-        });
+        }).then(this._checkResult)
     }
 
     patchProfile(userName, userDescription) {
@@ -68,7 +76,7 @@ export class API {
                 headers: {
                     authorization: this._authorization,
                 }
-            });
+            }).then(this._checkResult)
     }
 
     deleteLike(id) {
@@ -78,7 +86,7 @@ export class API {
                 headers: {
                     authorization: this._authorization,
                 }
-            });
+            }).then(this._checkResult)
     }
 
     deleteCard(id) {
