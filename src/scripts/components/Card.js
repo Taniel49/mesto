@@ -1,8 +1,8 @@
 /*Добавление карточек*/
 
 export class Card {
-    constructor(data, templateSelector, userIDSelector, handleCardClick, handleLikeCard, handleDeleteCard) {
-        this._userIDSelector = userIDSelector;
+    constructor(data, templateSelector, userID, handleCardClick, handleLikeCard, handleDeleteCard) {
+        this._userID = userID;
         this._handleLikeCard = handleLikeCard;
         this._handleDeleteCard = handleDeleteCard;
         this._owner = data.owner._id;
@@ -29,7 +29,7 @@ export class Card {
         this._cardImage.src = this._link;
         this._cardImage.alt = this._name;
         this.setLikes(this._likes);
-        if (this._owner === this._userIDSelector){this._element.querySelector('.element__delete-button').style.display = 'block'}
+        if (this._owner === this._userID){this._element.querySelector('.element__delete-button').style.display = 'block'}
 
         return this._element;
     }
@@ -46,17 +46,8 @@ export class Card {
     }
 
     isLiked(){
-        for (let i = 0; i < this._likes.length; i++){if (this._likes[i]._id === this._userIDSelector){return true;} }
+        for (let i = 0; i < this._likes.length; i++){if (this._likes[i]._id === this._userID){return true;} }
         return false;
-    }
-    removeLike(){
-       this._likeButton.classList.remove('element__like-button_liked');
-       this._likeCounter.textContent = this._likes.length;
-    }
-
-    addLike(){
-        this._likeButton.classList.add('element__like-button_liked');
-        this._likeCounter.textContent = this._likes.length;
     }
 
     deleteElement() {

@@ -42,7 +42,7 @@ export class API {
         }).then(this._checkResult)
     }
 
-    patchProfile(userName, userDescription) {
+    patchProfile(item) {
         return fetch(`${this._URL}/users/me`, {
             method: `PATCH`,
             headers: {
@@ -50,23 +50,23 @@ export class API {
                 'Content-Type': `application/json`
             },
             body: JSON.stringify({
-                name: userName,
-                about: userDescription
+                name: item.name,
+                about: item.about
             })
-        })
+        }).then(this._checkResult)
     }
 
-    patchAvatar(avatar) {
-        return fetch(`${this._URL}/users/avatar`, {
+    patchAvatar(item) {
+        return fetch(`${this._URL}/users/me/avatar`, {
             method: `PATCH`,
             headers: {
                 authorization: this._authorization,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                avatar: avatar
+                avatar: item.avatar
             })
-        })
+        }).then(this._checkResult)
     }
 
     putlike(id) {
@@ -96,6 +96,6 @@ export class API {
                 headers: {
                     authorization: this._authorization,
                 }
-            });
+            }).then(this._checkResult)
     }
 }
