@@ -75,6 +75,7 @@ const likeCard = (card) => {
 /*Удаление карточки*/
 
 const confirmation = new PopupWithConfirmation('popup_delete');
+confirmation.setEventListeners();
 
 const deleteCard = (card) => {
     document.querySelector('.popup__delete-button').textContent = 'Удаление...';
@@ -105,7 +106,6 @@ function createCard(item) {
             confirmation.setSubmitAction(() => {
                 deleteCard(card)
             });
-            confirmation.setEventListeners();
         });
 
     return card.generateCard();
